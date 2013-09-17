@@ -5,9 +5,8 @@
   vars_files:
   - vars/default_vagrant.yml
   roles:
-      - virtualbox
       - common
       - network
       - gateway
       - core
-      - iiab
+      #- iiab
