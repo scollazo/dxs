@@ -1,5 +1,5 @@
 - include: virtualbox.yml
-  when: ansible_virtualization_type == "virtualbox" 
+  when: ansible_virtualization_type == "VirtualBox" 
 
 - name: Install xs repo
   get_url: url=http://xsce.activitycentral.com/repos/xsce-release.repo dest=/etc/yum.repos.d/
