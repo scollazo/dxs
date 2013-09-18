@@ -31,8 +31,7 @@ On the XO-1.75 or XO-4 laptop
       cd ~/
       git clone https://github.com/activitycentral/dxs.git
       cd dxs
-      ./runansible xo
-      reboot
+      ./runansible
 
     .. Warning::
        Depending on the type of setup (one or two dongle), you'll need to
@@ -45,6 +44,7 @@ On the XO-1.75 or XO-4 laptop
        address, and then insert the LAN dongle.
 
 
+
 * After rebooting (insert the ethernet dongles at this point)...
 
     ::
@@ -55,3 +55,13 @@ On the XO-1.75 or XO-4 laptop
       reboot
 
 * DXS should be up and functional
+
+
+Building the rpm
+*****************************
+
+* An rpm can be built by using the command
+
+    ::
+      rpmbuild -bb dxs.spec
+
