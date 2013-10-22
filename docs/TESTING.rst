@@ -66,6 +66,16 @@ Ajenti Wondershaper
 ===================
 - Client: verify bandwidth edits via online speedtest or speedtest-cli
 
+Iceast
+===================
+- Run from client the command:
+
+::
+
+ gst-launch ximagesrc! ffmpegcolorspace ! videorate ! videoscale ! video/x-raw-yuv,width=640,height=480 ! theoraenc ! oggmux ! shout2send ip=localhost port=4433 password=dxsstreaming mount=stream streamname=Test description="Screencast" 
+
+- Check that http://schoolserver.local:9000 shows a mount point called "/stream"
+
 Upload Activity
 ===============
 - N/A: /var/www/html/upload_activity.php is currently not present - WIP
