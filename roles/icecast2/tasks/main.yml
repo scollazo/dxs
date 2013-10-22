@@ -1,0 +1,17 @@
+- name: Install icecast package
+  yum: name=icecast
+       state=present
+
+- name: Copy icecast config file
+  template: src=icecast.xml.j2
+            dest=/etc/icecast.xml
+            owner=root
+            group=root
+            mode=0640
+
+- name: Enable icecast service
+  service: name=icecast
+           enabled=yes
+
+
+
