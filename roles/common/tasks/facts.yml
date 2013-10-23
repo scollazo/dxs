@@ -14,3 +14,15 @@
   shell: /sbin/ip addr show ${xsce_networks.wan.iface} | /bin/awk '/link\/ether/ { print \$2}' | tr [:lower:] [:upper:]
   register: mac_wan
 
+#TODO: XO4 is a corner case , check xs-setup-network
+- name: Get WAN interface
+  shell: /sbin/route -n | awk '{if($4=="UG")print $8}'
+  register: wan_iface
+
+- name: Get LAN interface
+  shell: /sbin/ip link show  | grep mtu | awk -F":" '{print \$2}' | grep -v -e lo -e {{ wan_iface.stdout }} | tr -d ' ' |  head -n1
+  register: lan_iface
+
+- name: Debug interfaces
+  debug: msg="Autodiscovered Wan is {{ wan_iface.stdout }} and lan is {{ lan_iface.stdout }}"
+
